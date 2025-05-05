@@ -23,14 +23,15 @@ const CandidateSearch: React.FC = () => {
 
   useEffect(() => {
     const fetchCandidateDetails = async () => {
-      if (candidates.length > 0) {
+      if (candidates.length === 0) { return; }
+      
         try {
           const candidate = await searchGithubUser(candidates[currentIndex].login);
           setCurrentCandidate(candidate);
         } catch (error) {
           console.error('Error fetching candidate details:', error);
         }
-      }
+    
     };
 
     fetchCandidateDetails();
