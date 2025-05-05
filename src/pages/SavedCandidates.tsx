@@ -39,21 +39,7 @@ const SavedCandidates: React.FC = () => {
   return (
     <div className="saved-candidates-container">
       <h1>Potential Candidates</h1>
-      <div style={{ marginBottom: '20px' }}>
-        <input
-          type="text"
-          placeholder="Filter candidates by name"
-          value={filter}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFilter(e.target.value)}
-          style={{ marginRight: '10px' }}
-        />
-        <select
-          value={sortOption}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSortOption(e.target.value as 'name' | 'location')}>
-          <option value="name">Sort by Name</option>
-          <option value="location">Sort by Location</option>
-        </select>
-      </div>
+      
       {sortedCandidates.length > 0 ? (
         <table className="saved-candidates-table">
           <thead>
@@ -84,7 +70,7 @@ const SavedCandidates: React.FC = () => {
                 <td>{candidate.bio || 'N/A'}</td>
                 <td>
                   <IoRemoveCircle
-                    className={styles.removeButton}
+                  
                     onClick={() => removeCandidate(candidate.id || 0)}
                   />
                 </td>
